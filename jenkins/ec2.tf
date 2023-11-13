@@ -43,4 +43,28 @@ resource "aws_instance" "jenkins" {
   tags = {
     "Name" = "Jenkins"
   }
+
+ // Add a block for the root block device
+  root_block_device {
+    volume_type = "gp2"
+    volume_size = 8 # Replace with your desired root volume size
+  }
+
+  lifecycle {
+   create_before_destroy = true
+  }
 }
+
+resource "aws_ebs_volume" "jenkins_volume" {
+  size              = 8
+  type              = "gp2"
+  availability_zone = aws_instance.jenkins.availability_zone
+}
+
+/*
+resource "aws_volume_attachment" "jenkins_volume" {
+  device_name = "/dev/xvdf"
+  volume_id = "vol-01903525f09a927e6"
+  instance_id = aws_instance.jenkins.id
+}
+*/
