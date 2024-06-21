@@ -1,7 +1,24 @@
 # terraform
 Terraform repo for Infrastructure Management
 
-# Jenkins
+## Steps to execute
+1. Configure AWS credentials - https://us-east-1.console.aws.amazon.com/iam/home?region=us-east-1#/security_credentials/access-key-wizard
+2. Execute aws configure
+    ```
+    % aws configure 
+    AWS Access Key ID [None]: Enter AWS Access Key
+    AWS Secret Access Key [None]: Enter AWS Secret Access Key
+    Default region name [us-east-1]: us-east-1
+    Default output format [json]: json
+    ```
+ 4. Execute the terraform commands
+      ```
+      terraform init
+      terraform plan
+      terraform apply
+      ```
+
+## Jenkins
 This repository illustrates the Jenkins installation using Terraform. Terraform code does the following
 1. Create security group
   
@@ -25,7 +42,3 @@ This repository illustrates the Jenkins installation using Terraform. Terraform 
    
    <img width="621" alt="image" src="https://github.com/thunderbirdgit/terraform/assets/11564294/dc4f1bc1-7317-4ce5-a712-bef88b9cc347">
    <img width="1341" alt="image" src="https://github.com/thunderbirdgit/terraform/assets/11564294/5c16b02c-7284-463d-a673-ecc51335c4f7">
-
-
-
-   
