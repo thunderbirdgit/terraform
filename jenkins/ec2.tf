@@ -24,7 +24,7 @@ resource "aws_instance" "jenkins" {
     inline = [
       "sudo amazon-linux-extras install epel -y",
       "sudo yum update -y",
-      "sudo yum install java-11-amazon-corretto -y",
+      "sudo yum install java-17-amazon-corretto -y",
       "sudo yum remove java-1.8.0-openjdk -y",
       "sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo",
       "sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key",
@@ -38,7 +38,7 @@ resource "aws_instance" "jenkins" {
     type        = "ssh"
     host        = self.public_ip
     user        = "ec2-user"
-    private_key = "${file("/Users/laxmigangadharan/.ssh/us-east-1-jenkins.pem")}"
+    private_key = "${file("/Users/gramakrishnan/.ssh/us-east-1-jenkins.pem")}"
   }
   tags = {
     "Name" = "Jenkins"
